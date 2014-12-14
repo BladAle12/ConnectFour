@@ -65,7 +65,7 @@ public class Usuarios {
         return false;
     }
     /**
-     * Imprime los datos del usuario.
+     * Imprime los datos del usuario, exceptuando password.
      */
     public void print(){
         System.out.printf("Nombre: %s - Username: %s \n", 

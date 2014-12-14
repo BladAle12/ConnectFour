@@ -10,8 +10,7 @@ package Librerias;
  * @author BladimirA
  */
 public enum Colores {
-    
-     RED(31), GREEN(32), YELLOW(33), BLUE(34), MAGENTA(35), CYAN(36), BLACK(37),WHITE(30);
+     YELLOW(33), WHITE(30), RED(31), GREEN(32),BLUE(34), CYAN(36), BLACK(37);
     int cod;
     Colores(int c){
         cod = c;

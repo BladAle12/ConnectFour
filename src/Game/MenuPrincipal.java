@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class MenuPrincipal {
     //Variables para el Funcionamiento del Programa
-    Scanner lea = new Scanner(System.in);
+    Scanner rd = new Scanner(System.in);
     
     //ArrayLists
     ArrayList<Usuarios> users = new ArrayList<>();
@@ -31,9 +31,9 @@ public class MenuPrincipal {
     
     void login(){
         Prints.printWithColor("YELLOW","Usuario: ");
-        String user = lea.next();
+        String user = rd.next();
         Prints.printWithColor("YELLOW","Contraseña: ");
-        String pass = lea.next();
+        String pass = rd.next();
         
     }
     
@@ -47,7 +47,7 @@ public class MenuPrincipal {
                         + "3- Mi Perfil \n"
                         + "4- Cerrar Sesion \n");
                 System.out.print("Seleccione: ");
-                op = lea.nextInt();
+                op = rd.nextInt();
                 
                 if (op > 0 && op < 5)
                     accept = true;
@@ -69,7 +69,7 @@ public class MenuPrincipal {
                         break;
                 }
             }catch (InputMismatchException e){
-                lea.next();
+                rd.next();
                 System.out.println("Ingrese un numero\n");
             }
         }while(!accept);

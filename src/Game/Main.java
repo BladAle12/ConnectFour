@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author BladimirA
  */
 public class Main {
-    static Scanner lea = new Scanner(System.in);
+    static Scanner rd = new Scanner(System.in);
     static ArrayList<Usuarios> users = new ArrayList<>();
     static RandomAccessFile usuarios;
     
@@ -25,13 +25,14 @@ public class Main {
         int op = 0;
         boolean exit = false;
         
+        
         do{
             try{
-                Prints.printlnWithColor("CYAN","1- Login");
-                Prints.printlnWithColor("CYAN","2- Crear Usuario");
-                Prints.printlnWithColor("CYAN","3- Salir");
+                Prints.printlnWithColor("GREEN","1- Login");
+                Prints.printlnWithColor("GREEN","2- Crear Usuario");
+                Prints.printlnWithColor("GREEN","3- Salir");
                 System.out.print("Seleccione: ");
-                op = lea.nextInt();
+                op = rd.nextInt();
                 switch (op){
                     case 1:
                         //Llamar Login
@@ -45,7 +46,7 @@ public class Main {
                         break;
                 }
             }catch (InputMismatchException e){
-                lea.next();
+                rd.next();
                 Prints.printlnWithColor("RED","Ingrese un numero\n");
             }
         }while(!exit);
@@ -54,11 +55,11 @@ public class Main {
     private static boolean login(){
         if (users.size() > 0){
             Prints.printWithColor("YELLOW","Usuario: ");
-            String user = lea.next();
+            String user = rd.next();
             Usuarios buscar = searchUser(user);
             if (buscar != null){
                 Prints.printWithColor("YELLOW","Contraseña: ");
-                String pass = lea.next();
+                String pass = rd.next();
                 if (buscar.getPassword().equals(pass))
                     return true;
             }
@@ -71,18 +72,16 @@ public class Main {
     
     private static boolean createUser(){
         Prints.printWithColor("YELLOW","Usuario: ");
-            String user = lea.next();
+            String user = rd.next();
             if (searchUser(user) == null){
                 Prints.printWithColor("YELLOW","Contraseña: ");
-                String pass = lea.next();
+                String pass = rd.next();
                 Prints.printWithColor("YELLOW","Nombre Completo (Sin Espacios): ");
-                String nombre = lea.next();
+                String nombre = rd.next();
                 Prints.printWithColor("YELLOW","Fecha Nacimiento (dd/mm/yy/): ");
-                String fecha = lea.next();
+                String fecha = rd.next();
                 
-                //int dia = Integer.parseInt(fecha.split("/"));
                 
-                //users.add(new Usuarios());
             }else
                 Prints.printlnWithColor("RED","Usuario ya Existe\n");
         return false;
